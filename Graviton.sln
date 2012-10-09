@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graviton", "SysLog\Graviton.csproj", "{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graviton.Service", "SysLog.Service\Graviton.Service.csproj", "{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
