@@ -63,7 +63,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SysLog\Graviton.csproj">
+    <ProjectReference Include="..\Graviton\Graviton.csproj">
       <Project>{35a5bb17-7f46-44c3-b598-fd7bd0ecefce}</Project>
       <Name>Graviton</Name>
     </ProjectReference>

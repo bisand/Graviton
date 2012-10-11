@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graviton", "SysLog\Graviton.csproj", "{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graviton", "Graviton\Graviton.csproj", "{35A5BB17-7F46-44C3-B598-FD7BD0ECEFCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graviton.Service", "SysLog.Service\Graviton.Service.csproj", "{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graviton.Service", "Graviton.Service\Graviton.Service.csproj", "{B06702CD-D4DE-4E5F-BF05-9FCB57C45A4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

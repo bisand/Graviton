@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
@@ -13,7 +12,6 @@ namespace Graviton
     public class SysLog
     {
         private static readonly ILog Logger = LogManager.GetLogger(typeof (SysLog));
-        private static Dictionary<string, ILog> _loggers;
 
         private bool _stopping;
         private UdpClient _udpClient;
@@ -22,7 +20,7 @@ namespace Graviton
         public SysLog()
         {
             GlobalContext.Properties["pid"] = Process.GetCurrentProcess().Id;
-            _loggers = ReadConfiguration();
+            ReadConfiguration();
             StartFileWatcher();
         }
 
@@ -54,25 +52,23 @@ namespace Graviton
             }
 
             Logger.Info("Detected changes in configuration file. Reloading loggers...");
-            _loggers = ReadConfiguration();
+            ReadConfiguration();
 
             StartFileWatcher();
         }
 
-        private static Dictionary<string, ILog> ReadConfiguration()
+        private static void ReadConfiguration()
         {
             try
             {
                 ConfigurationManager.RefreshSection("loggerConfigurationSection");
                 var configurationSection = (LoggerConfigurationSection) ConfigurationManager.GetSection("loggerConfigurationSection");
-                var loggers = LogConfigurator.Initialize(configurationSection);
-                return loggers;
+                LogConfigurator.Initialize(configurationSection);
             }
             catch (Exception ex)
             {
                 Logger.Error("An error occured while trying to read the loggerConfigurationSection.", ex);
             }
-            return new Dictionary<string, ILog>();
         }
 
         public void Start()
@@ -95,16 +91,6 @@ namespace Graviton
 
         private void ReceiveCallback(IAsyncResult ar)
         {
-            ProcessCallback(ar, AddressFamily.InterNetwork);
-        }
-
-        private void ReceiveCallbackV6(IAsyncResult ar)
-        {
-            ProcessCallback(ar, AddressFamily.InterNetworkV6);
-        }
-
-        private void ProcessCallback(IAsyncResult ar, AddressFamily addressFamily)
-        {
             if (ar == null || !(ar.AsyncState is UdpState))
             {
                 if (!_stopping)
@@ -124,7 +110,7 @@ namespace Graviton
                 var data = stateObject.WorkingSocket.EndReceive(ar, ref ipEndPoint);
 
                 var stringData = Encoding.ASCII.GetString(data, 0, data.Length);
-                var action = new Action<string, Dictionary<string, ILog>>((s, loggers) =>
+                var action = new Action<string>(s =>
                     {
                         try
                         {
@@ -142,7 +128,7 @@ namespace Graviton
 
                             var loggerName = loggsplit[0].Trim();
                             ILog logger;
-                            if (loggers.TryGetValue(loggerName, out logger))
+                            if ((logger = LogManager.Exists(loggerName)) != null)
                             {
                                 logger.Info(loggData);
                             }
@@ -153,7 +139,7 @@ namespace Graviton
                         }
                     });
 
-                action.BeginInvoke(stringData, _loggers, null, null);
+                action.BeginInvoke(stringData, null, null);
             }
             catch (Exception ex)
             {
