@@ -1,6 +1,6 @@
 Graviton SysLog Service
 =======================
-A simple but usefull syslog server.
+A simple but useful syslog server.
 
 Graviton can collect logs from multiple sources and save the result into one or many files/destinations, depending on your setup. It can run as a standalone application or run as a service.
 
