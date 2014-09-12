@@ -1,50 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Graviton by bisand</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <title>Graviton by bisand</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/bisand/Graviton">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/bisand/Graviton/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/bisand/Graviton/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <header>
+      <div class="inner">
+        <h1>Graviton</h1>
+        <h2>Small but powerful, like a Graviton...</h2>
+        <a href="https://github.com/bisand/Graviton" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-    <div class="wrapper">
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="graviton-syslog-service" class="anchor" href="#graviton-syslog-service"><span class="octicon octicon-link"></span></a>Graviton SysLog Service</h1>
 
-      <section>
-        <div id="title">
-          <h1>Graviton</h1>
-          <p>Small but powerful, like a Graviton...</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/bisand">bisand</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
+<p>A simple but usefull syslog server.</p>
 
-        <h1>Graviton SysLog Service</h1>
+<p>Graviton can collect logs from multiple sources and save the result into one or many files/destinations, depending on your setup.</p>
 
-<p>A simple but useful syslog server.</p>
-      </section>
+<h5>
+<a name="client-log4net-configuration-example" class="anchor" href="#client-log4net-configuration-example"><span class="octicon octicon-link"></span></a>Client log4net configuration example</h5>
 
+<pre><code>&lt;!-- Simple example for a consuming RemoteSyslogAppender --&gt;
+&lt;!--*****************************************************--&gt;
+&lt;appender name="RemoteSyslogAppender" type="log4net.Appender.RemoteSyslogAppender"&gt;
+     &lt;layout type="log4net.Layout.PatternLayout"
+          value="Example | %date{yyyy-MM-dd HH:mm:ss,fff} | %-5level | DEV | %P{log4net:HostName} | %-7property{pid} | %-5thread | %property{username} | %logger | %message | %exception | %newline" /&gt;
+  &lt;remoteAddress value="localhost" /&gt;
+  &lt;remotePort value="514" /&gt;
+  &lt;filter type="log4net.Filter.LevelRangeFilter"&gt;
+      &lt;levelMin value="DEBUG" /&gt;
+  &lt;/filter&gt;
+&lt;/appender&gt;
+&lt;!--
+The first value in the layout identifies the logger name. (in this case "Example")
+See loggerConfigurationSection in the App.config file. Here you can have as many 
+configurations as you need.
+--&gt;
+</code></pre>
+
+<h5>
+<a name="example-of-loggerconfigurationsection-in-the-graviton-appconfig-file" class="anchor" href="#example-of-loggerconfigurationsection-in-the-graviton-appconfig-file"><span class="octicon octicon-link"></span></a>Example of loggerConfigurationSection in the Graviton app.config file</h5>
+
+<pre><code>&lt;loggerConfigurationSection&gt;
+    &lt;LoggerConfigurations&gt;
+          &lt;logger loggerName="Example"
+                  filename="C:\Temp\Example\Example.log"
+                  maximumFileSize="10MB"
+                  maxSizeRollBackups="10"
+                  preserveLogFileNameExtension="true"
+                  datePattern="yyyy-MM-dd'.log'"
+                  logLevel="DEBUG"
+                  /&gt;
+    &lt;/LoggerConfigurations&gt;
+&lt;/loggerConfigurationSection&gt;
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/bisand/Graviton/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/bisand/Graviton/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/bisand/Graviton"></a> is maintained by <a href="https://github.com/bisand">bisand</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+  
   </body>
 </html>
