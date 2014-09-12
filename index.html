@@ -33,10 +33,17 @@
 
 <p>A simple but usefull syslog server.</p>
 
-<p>Graviton can collect logs from multiple sources and save the result into one or many files/destinations, depending on your setup.</p>
+<p>Graviton can collect logs from multiple sources and save the result into one or many files/destinations, depending on your setup. It can run as a standalone application or run as a service.</p>
 
-<h5>
-<a name="client-log4net-configuration-example" class="anchor" href="#client-log4net-configuration-example"><span class="octicon octicon-link"></span></a>Client log4net configuration example</h5>
+<h4>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h4>
+
+<ul>
+<li>Extract zip-file into a desired directory</li>
+<li>Type <strong>Graviton.Service.exe install</strong> from the command prompt to install Graviton as a service</li>
+<li>Start the service (<strong>net start Graviton</strong>)</li>
+</ul><h4>
+<a name="client-log4net-configuration-example" class="anchor" href="#client-log4net-configuration-example"><span class="octicon octicon-link"></span></a>Client log4net configuration example</h4>
 
 <pre><code>&lt;!-- Simple example for a consuming RemoteSyslogAppender --&gt;
 &lt;!--*****************************************************--&gt;
@@ -56,8 +63,8 @@ configurations as you need.
 --&gt;
 </code></pre>
 
-<h5>
-<a name="example-of-loggerconfigurationsection-in-the-graviton-appconfig-file" class="anchor" href="#example-of-loggerconfigurationsection-in-the-graviton-appconfig-file"><span class="octicon octicon-link"></span></a>Example of loggerConfigurationSection in the Graviton app.config file</h5>
+<h4>
+<a name="example-of-loggerconfigurationsection-in-the-graviton-appconfig-file" class="anchor" href="#example-of-loggerconfigurationsection-in-the-graviton-appconfig-file"><span class="octicon octicon-link"></span></a>Example of loggerConfigurationSection in the Graviton app.config file</h4>
 
 <pre><code>&lt;loggerConfigurationSection&gt;
     &lt;LoggerConfigurations&gt;
