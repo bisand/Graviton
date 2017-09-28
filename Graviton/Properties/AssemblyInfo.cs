@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("biseth.net")]
 [assembly: AssemblyProduct("Graviton")]
-[assembly: AssemblyCopyright("Copyright © André Biseth 2012")]
+[assembly: AssemblyCopyright("Copyright © André Biseth 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
