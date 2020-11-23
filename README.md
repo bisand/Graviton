@@ -4,14 +4,14 @@ A simple but useful syslog server.
 
 Graviton can collect logs from multiple sources and save the result into one or many files/destinations, depending on your setup. It can run as a standalone application or run as a service.
 
-####Installation
+#### Installation
 * Extract zip-file into a desired directory
 * Type **Graviton.Service.exe install** from the command prompt to install Graviton as a service
 * Start the service (**net start Graviton**)
 
 
 
-####Client log4net configuration example
+#### Client log4net configuration example
 
     <!-- Simple example for a consuming RemoteSyslogAppender -->
     <!--*****************************************************-->
@@ -30,7 +30,7 @@ Graviton can collect logs from multiple sources and save the result into one or 
     configurations as you need.
     -->
 
-####Example of loggerConfigurationSection in the Graviton app.config file
+#### Example of loggerConfigurationSection in the Graviton app.config file
 
     <loggerConfigurationSection>
         <LoggerConfigurations>
