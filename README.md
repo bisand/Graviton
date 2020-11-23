@@ -12,7 +12,7 @@ Graviton can collect logs from multiple sources and save the result into one or 
 
 
 #### Client log4net configuration example
-
+```xml
     <!-- Simple example for a consuming RemoteSyslogAppender -->
     <!--*****************************************************-->
     <appender name="RemoteSyslogAppender" type="log4net.Appender.RemoteSyslogAppender">
@@ -29,9 +29,9 @@ Graviton can collect logs from multiple sources and save the result into one or 
     See loggerConfigurationSection in the App.config file. Here you can have as many 
     configurations as you need.
     -->
-
+```
 #### Example of loggerConfigurationSection in the Graviton app.config file
-
+```xml
     <loggerConfigurationSection>
         <LoggerConfigurations>
               <logger loggerName="Example"
@@ -44,3 +44,4 @@ Graviton can collect logs from multiple sources and save the result into one or 
                       />
         </LoggerConfigurations>
     </loggerConfigurationSection>
+```
